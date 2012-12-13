@@ -1,0 +1,14 @@
+.cmwsecure_expandable {
+	background-image: url(../img/plus_sign.png);
+	background-repeat: no-repeat;
+	background-position: right;
+	margin-left: 50px;
+	border-bottom: #F1F1F1 thin solid;
+}
+.cmwsecure_expandable-html {
+	margin-top: 10px;
+}
+
+.cmwsecure_expandable-html p {
+	width: 58%;
+}
