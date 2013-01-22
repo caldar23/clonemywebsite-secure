@@ -1,14 +1,29 @@
-.cmwsecure_expandable {
+.cmwsecure_expand {
 	background-image: url(../img/plus_sign.png);
 	background-repeat: no-repeat;
 	background-position: right;
 	margin-left: 50px;
 	border-bottom: #F1F1F1 thin solid;
 }
-.cmwsecure_expandable-html {
+.cmwsecure_expand-html {
 	margin-top: 10px;
 }
 
-.cmwsecure_expandable-html p {
+.cmwsecure_expand-html p {
+	width: 58%;
+}
+
+.cmwsecure_minimize {
+	background-image: url(../img/minus_sign.png);
+	background-repeat: no-repeat;
+	background-position: right;
+	margin-left: 50px;
+	border-bottom: #F1F1F1 thin solid;
+}
+.cmwsecure_minimize-html {
+	margin-top: 10px;
+}
+
+.cmwsecure_minimize-html p {
 	width: 58%;
 }

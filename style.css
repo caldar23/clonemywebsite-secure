@@ -4,7 +4,7 @@ Theme URI: http://clonemywebsite.com/
 Description: A theme used to integrate OfficeAutoPilot order forms, securely and sexily. 
 Author: Andrew Myers, Josh Motlong, CMW Team
 Author URI: http://clonemywebsite.com/
-Version: 1.0.2
+Version: 1.1.0
 
 License:
 License URI:
@@ -1496,6 +1496,13 @@ img#wpstats {
 		float: none;
 		width: auto;
 	}
+	
+	.site-bump {
+		margin: 0 auto;
+		max-width: 760px;
+		max-width: 54.2857143rem;
+		overflow: hidden;
+	}
 }
 
 /* Minimum width of 960 pixels. */
@@ -1526,6 +1533,31 @@ img#wpstats {
 	.wrapper {
 		padding: 0 20px;
 		padding: 0 1.42857143rem;	
+	}
+	
+	body .site-bump {
+		padding: 0 0px;
+		padding: 0 0rem;
+		margin-top: 0px;
+		margin-top: 0rem;
+		margin-bottom: 48px;
+		margin-bottom: 3.428571429rem;
+		box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+		background-color: #fff;
+
+	}
+	
+	body.custom-background-empty .site-bump,
+	body.custom-background-white .site-bump {
+		padding: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+		box-shadow: none;
+	}
+	
+	.wrapper-bump {
+		padding: 20px 20px;
+		padding: 1.42857143rem 1.42857143rem;
 	}
 }
 

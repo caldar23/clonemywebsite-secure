@@ -86,67 +86,68 @@
                 
                 <h2>Welcome, peeps, to CMW Secure's settings page!</h2>
                 <p>Welcome to the awesome page that is of the most awesome CloneMyWebsite&trade; skeletal theme there is! Yeah, I know that sentence didn't make sense, but I'll fix it later. Truthfully, it's just filler to make this part of the page look bigger so it "flows well".</p>
-                <p>Just click on the big words below to expand the page for more options. And <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">this chart</a> might help</p>
+                <p>Just click on the big words below to expand the page for more options. And <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">this chart</a> might help.</p>
+                <p>And just so you know, only the "Head code" and "Credits" show up on the bump page templates.</p>
            	
-            	<h2 class="cmwsecure_expandable" id="cmwsecure_head">Head code</h2>
-                <div id="cmwsecure_head-html" class="cmwsecure_expandable-html" style="display:none">
+            	<h2 class="cmwsecure_expand" id="cmwsecure_head">Head code</h2>
+                <div id="cmwsecure_head-html" class="cmwsecure_expand-html" style="display:none">
                 
-                <p>In this area, called "head code", you are able to add anything to the &lt;head&gt; area of the page as it loads. This is a great place to put and styles that you want all over the site and even links to scripts and css files. And for those who really want to know, it's loaded right before the &lt;/head&gt; tag and is attached on the wp_head hook.<br />
+                <p>In this area, called "head code", you are able to add anything to the &lt;head&gt; area of the page as it loads. This is a great place to put any styles that you want to be used anywhere the site, including links to scripts and css files. And for those who really want to know, it's loaded right before the &lt;/head&gt; tag and is attached on the wp_head hook.<br />
 				</p>
 					<textarea name="cmwsecure_head" type="textarea" style="margin:0;height:20em;width:58%;" ><?php echo $cmwsecure_head; ?></textarea><br>
                     <?php submit_button(); ?><br /><br />
                 </div><br />
                                 
-				<h2 class="cmwsecure_expandable" id="cmwsecure_outside_page_open">Outside Page (Open)</h2>
-                <div id="cmwsecure_outside_page_open-html" class="cmwsecure_expandable-html" style="display:none">
-                <p>In this area, you can stick some html outside the <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">big, light blueish box labeled "Page".</a> <br />
+				<h2 class="cmwsecure_expand" id="cmwsecure_outside_page_open">Outside Page (Open)</h2>
+                <div id="cmwsecure_outside_page_open-html" class="cmwsecure_expand-html" style="display:none">
+                <p>In this area, you can stick some html outside the <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">big, light blueish box labeled "Page".</a> This is useful to stick some code in the area that would be between the body tag and where the header goes.<br />
 		    </p>
                 	<textarea name="cmwsecure_outside_page_open" type="textarea" style="margin:0;height:20em;width:58%;" ><?php echo $cmwsecure_outside_page_open; ?></textarea><br>
                 	<?php submit_button(); ?><br /><br />
                 </div><br />
                 
-                <h2 class="cmwsecure_expandable" id="cmwsecure_outside_wrapper_open">Outside Wrapper (Open)</h2>
-                <div id="cmwsecure_outside_wrapper_open-html" class="cmwsecure_expandable-html" style="display:none">
-                	<p>In this area, you can stick some html outside the <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">big, light greenish box labeled "Wrapper".</a><br />
+                <h2 class="cmwsecure_expand" id="cmwsecure_outside_wrapper_open">Outside Wrapper (Open)</h2>
+                <div id="cmwsecure_outside_wrapper_open-html" class="cmwsecure_expand-html" style="display:none">
+                	<p>In this area, you can stick some html outside the <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">big, light greenish box labeled "Wrapper".</a> This is a great spot to put some code so your site could have a cool header.<br />
 			    </p>
                     <textarea name="cmwsecure_outside_wrapper_open" type="textarea" style="margin:0;height:20em;width:58%;" ><?php echo $cmwsecure_outside_wrapper_open; ?></textarea><br>
                     <?php submit_button(); ?><br /><br />
                 </div><br />
                 
-                <h2 class="cmwsecure_expandable" id="cmwsecure_outside_content_open">Outside Content (Open)</h2>
-                <div id="cmwsecure_outside_content_open-html" class="cmwsecure_expandable-html" style="display:none">
-                	<p>In this area, you can stick some html outside the <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">big, light reddish box labeled "Content".</a><br />
+                <h2 class="cmwsecure_expand" id="cmwsecure_outside_content_open">Outside Content (Open)</h2>
+                <div id="cmwsecure_outside_content_open-html" class="cmwsecure_expand-html" style="display:none">
+                	<p>In this area, you can stick some html outside the <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">big, light reddish box labeled "Content".</a> This is super handy area used to wrap your post/page content with a style. Open your divs here and close them in "Outside Content (Close)" and style it any way you like.<br />
 			    </p>
                     <textarea name="cmwsecure_outside_content_open" type="textarea" style="margin:0;height:20em;width:58%;" ><?php echo $cmwsecure_outside_content_open; ?></textarea><br>
                     <?php submit_button(); ?><br /><br />
                 </div><br />
                 
-                <h2 class="cmwsecure_expandable" id="cmwsecure_outside_content_close">Outside Content (Close)</h2>
-                <div id="cmwsecure_outside_content_close-html" class="cmwsecure_expandable-html" style="display:none">
-                	<p>You know that code you stuck outside the <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">big, light reddish box labeled "Content"?</a> This is a great spot to close any divs you might have opened. <br />
+                <h2 class="cmwsecure_expand" id="cmwsecure_outside_content_close">Outside Content (Close)</h2>
+                <div id="cmwsecure_outside_content_close-html" class="cmwsecure_expand-html" style="display:none">
+                	<p>You know that code you stuck in the area "Outside Content (Open)"? This is the perfect place to close them so your site doesn't get super messed up. Just as a reminder, this is for the <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">big, light reddish box labeled "Content"?</a> <br />
 			    </p>
                 	<textarea name="cmwsecure_outside_content_close" type="textarea" style="margin:0;height:20em;width:58%;" ><?php echo $cmwsecure_outside_content_close; ?></textarea><br>
                 	<?php submit_button(); ?><br /><br />
                 </div><br />
                 
-                <h2 class="cmwsecure_expandable" id="cmwsecure_outside_wrapper_close">Outside Wrapper (Close)</h2>
-                <div id="cmwsecure_outside_wrapper_close-html" class="cmwsecure_expandable-html" style="display:none">
-                	<p>You know that code you stuck outside the <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">big, light greenish box labeled "Wrapper"?</a> This is a great spot to close any divs you might have opened. <br />
+                <h2 class="cmwsecure_expand" id="cmwsecure_outside_wrapper_close">Outside Wrapper (Close)</h2>
+                <div id="cmwsecure_outside_wrapper_close-html" class="cmwsecure_expand-html" style="display:none">
+                	<p>Did you have any divs that you opened in "Outside Wrapper (Open)"? The <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">big, light greenish box labeled "Wrapper"?</a> This is a great spot to close them. <br />
 			    </p>
                 	<textarea name="cmwsecure_outside_wrapper_close" type="textarea" style="margin:0;height:20em;width:58%;" ><?php echo $cmwsecure_outside_wrapper_close; ?></textarea><br>
                 	<?php submit_button(); ?><br /><br />
                 </div><br />
                 
-                <h2 class="cmwsecure_expandable" id="cmwsecure_outside_page_close">Outside Page (Close)</h2>
-                <div id="cmwsecure_outside_page_close-html" class="cmwsecure_expandable-html" style="display:none">
-                	<p>You know that code you stuck outside the <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">big, light blueish box labeled "Page"?</a> This is a great spot to close any divs you might have opened. <br />
+                <h2 class="cmwsecure_expand" id="cmwsecure_outside_page_close">Outside Page (Close)</h2>
+                <div id="cmwsecure_outside_page_close-html" class="cmwsecure_expand-html" style="display:none">
+                	<p>You know that code you stuck outside the <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">big, light blueish box labeled "Page"?</a> This is a very nice spot to close any divs you might have opened. <br />
 					</p>
                 	<textarea name="cmwsecure_outside_page_close" type="textarea" style="margin:0;height:20em;width:58%;" ><?php echo $cmwsecure_outside_page_close; ?></textarea><br>
                 	<?php submit_button(); ?><br /><br />
       </div><br />
                 
-                <h2 class="cmwsecure_expandable" id="cmwsecure_credits">Credits</h2>
-                <div id="cmwsecure_credits-html" class="cmwsecure_expandable-html" style="display:none">
+                <h2 class="cmwsecure_expand" id="cmwsecure_credits">Credits</h2>
+                <div id="cmwsecure_credits-html" class="cmwsecure_expand-html" style="display:none">
                 	<p>A great spot to stick any copyrights for the site, and scripts you want to load later on the page. This is in the <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">big, light brownish box labeled "Footer".</a><br />
 			    </p>
                 	<textarea name="cmwsecure_credits" type="textarea" style="margin:0;height:20em;width:58%;" ><?php echo $cmwsecure_credits; ?></textarea><br>
