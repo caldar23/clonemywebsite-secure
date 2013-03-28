@@ -1,11 +1,11 @@
 <?php
 
 get_header(); ?>
-
-
+	
+		<?php do_action( 'cmwsecure_custom_checkout_html' ); ?>
 
 	<div id="primary" class="site-content">
-    <?php do_action( 'cmwsecure_outside_content_open' ); ?>
+	<?php do_action( 'cmwsecure_outside_content_open' ); ?>
 		<div id="content" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>

@@ -76,18 +76,26 @@
 			
 		}
 		
+		global $current_user, $user_identity ;
+		get_currentuserinfo();
 		
+		
+		$displayname = $user_identity ;	
+		
+		if ( $displayname == '') { $displayname = 'peeps'; }
+
 	?>
 	
     <div class="wrap">
         
          <form name="cmwsecure_form" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
-            	<input type="hidden" name="cmwsecure_form" value="Y">		
+            	<input type="hidden" name="cmwsecure_form" value="Y">	
+
                 
-                <h2>Welcome, peeps, to CMW Secure's settings page!</h2>
-                <p>Welcome to the awesome page that is of the most awesome CloneMyWebsite&trade; skeletal theme there is! Yeah, I know that sentence didn't make sense, but I'll fix it later. Truthfully, it's just filler to make this part of the page look bigger so it "flows well".</p>
+                <h2>Welcome, <?php echo $displayname; ?>, to CloneMyWebsite&trade; Secure's settings page!</h2>
+                <p>This is where you can customize the "wrapper" around the checkout pages. This way you can style the overall theme while still keeping the page content area on the individual page just for the order forms.</p>
                 <p>Just click on the big words below to expand the page for more options. And <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">this chart</a> might help.</p>
-                <p>And just so you know, only the "Head code" and "Credits" show up on the bump page templates.</p>
+                <p>And just so you know, the Bump page template only use the "Head code" and "Credits" areas. If there's a script that you want to have on every page, it's probably best to stick it in those places.</p>
            	
             	<h2 class="cmwsecure_expand" id="cmwsecure_head">Head code</h2>
                 <div id="cmwsecure_head-html" class="cmwsecure_expand-html" style="display:none">
@@ -309,7 +317,78 @@ function cmwsecure_front_scripts() {
 
 }
 
+
 // Activate!
 add_action('wp_enqueue_scripts', 'cmwsecure_front_scripts');
 
+
+// Checkout extra stuff  Custom Checkout HTML custom_checkout_html_
+function cmwsecure_add_meta_box() {
+
+	add_meta_box( 'cmwsecure-custom-checkout-html', 'Custom Top Level HTML', 'cmwsecure_inner_meta_box', 'page', 'normal', 'high' );
+
+}
+
+/* Prints the box content */
+function cmwsecure_inner_meta_box( $post ) {
+
+	// Use nonce for verification
+	wp_nonce_field( plugin_basename( __FILE__ ), 'cmwsecure_meta_box_noncename' );
+	
+	// Use get_post_meta to retrieve an existing value from the database and use the value for the form
+	$value = get_post_meta( $post->ID, '_cmwsecure_custom_checkout_html_meta_box', true ); ?>    
+
+    <p>Sometimes you want the checkout page to do a little... "reinforcing" of the sale. This is where Top Level HTML comes in. This area allows you to stick some HTML above all the fields in the check out page. See, it goes where this <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/top-level-html.png' ; ?>" target="_blank">orange box</a> is. That means it's above the <a href="<?php echo get_bloginfo('stylesheet_directory') .'/img/structure.png' ; ?>" target="_blank">content and sidebar</a>.</p>
+    <br />
+   	<label for="cmwsecure_meta_box">Enter custom top level HTML below:</label> <strong>HTML is recommended.</strong> And make sure it's good code, cause otherwise it could mess things up bad. But that's pretty much standard anywhere you code.<br />
+	<table width="100%">
+    	<tr>
+        	<td width="100%">
+	<textarea id="cmwsecure_custom_checkout_html_meta_box" name="cmwsecure_custom_checkout_html_meta_box" style="width: 100%; height:400px;"><?php echo esc_attr($value); ?></textarea>
+			</td>
+        </tr>
+    </table>
+    <?php
+}
+
+
+
+/* When the post is saved, saves our custom data */
+function cmwsecure_meta_box_save_postdata( $post_id ) {
+	
+	// First we need to check if the current user is authorised to do this action. 
+	if ( 'page' == $_POST['post_type'] ) {
+		if ( ! current_user_can( 'edit_page', $post_id ) ) 
+			return;
+	}
+	
+	// Secondly we need to check if the user intended to change this value.
+	if ( ! isset( $_POST['cmwsecure_meta_box_noncename'] ) || ! wp_verify_nonce( $_POST['cmwsecure_meta_box_noncename'], plugin_basename( __FILE__ ) ) )
+		return;
+	
+	// Thirdly we can save the value to the database
+	
+	$post_ID = $_POST['post_ID'];
+	
+	$mydata =  $_POST['cmwsecure_custom_checkout_html_meta_box'];
+	
+	update_post_meta($post_ID, '_cmwsecure_custom_checkout_html_meta_box', $mydata);
+
+}
+
+add_action( 'add_meta_boxes', 'cmwsecure_add_meta_box' );
+add_action( 'save_post', 'cmwsecure_meta_box_save_postdata' );
+
+
+function cmwsecure_custom_checkout_html() {
+	
+	$post_ID = get_the_ID();
+	$output = get_post_meta($post_ID, '_cmwsecure_custom_checkout_html_meta_box', TRUE );
+	$output = stripslashes($output);
+	$output = '<div style="margin-top: 10px;" class="entry-content">'.$output.'</div>';
+	
+	echo $output;
+
+}
+add_action ( 'cmwsecure_custom_checkout_html', 'cmwsecure_custom_checkout_html' );
 ?>
